@@ -1,0 +1,14 @@
+Created around 27.08.2015.
+
+Multiply versions on i5-4200u (2 * 1000x1000 in seconds single-threaded):
+Simple 7.12
+Simple * AVX 0.70
+Several non-working
+4x4   - ?
+8x8v1 - ~0.25
+8x8v2 - 0.245
+8x8v3 + 16x16 - 0.165
+
+Difference between Simple*AVX and best version might seem small,
+however the first does not benefit at all from more threads while the
+latter does relatively well.

@@ -1,0 +1,43 @@
+  __m256 r0, r1, r2, r3, r4, r5, r6, r7;
+  __m256 a0, a1, a2, a3, b0, bs, a00, b00;
+ 
+  _mm256_load_ps(pr + dr * 0, r0);
+  _mm256_load_ps(pr + dr * 1, r1);
+  _mm256_load_ps(pr + dr * 2, r2);
+  _mm256_load_ps(pr + dr * 3, r3);
+  _mm256_load_ps(pr + dr * 4, r4);
+  _mm256_load_ps(pr + dr * 5, r5);
+  _mm256_load_ps(pr + dr * 6, r6);
+  _mm256_load_ps(pr + dr * 7, r7);
+  a0 = _mm256_load_ps(pa + da * 0, a0);
+  b0 = _mm256_load_ps(pb + db * 0, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 1, a0);
+  b0 = _mm256_load_ps(pb + db * 1, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 2, a0);
+  b0 = _mm256_load_ps(pb + db * 2, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 3, a0);
+  b0 = _mm256_load_ps(pb + db * 3, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 4, a0);
+  b0 = _mm256_load_ps(pb + db * 4, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 5, a0);
+  b0 = _mm256_load_ps(pb + db * 5, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 6, a0);
+  b0 = _mm256_load_ps(pb + db * 6, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 
+  a0 = _mm256_load_ps(pa + da * 7, a0);
+  b0 = _mm256_load_ps(pb + db * 7, b0);
+  b1 = _mm256_permute2f128_ps(b0, b0, 1);
+ 

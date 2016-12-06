@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-t0 = "  "
-t1 = "  \n"
+t0 = "\t"
+t1 = "\n"
 
 def intro(f):
     f.write("\n")
@@ -10,10 +10,10 @@ def intro(f):
 def func_start(f, tag):
     f.write("\n")
     f.write("\n")
-    f.write("void Matrix::local_mul" + tag + "(Matrix & ret, const Matrix & ma, const Matrix & mb,\n")
-    f.write("                       " + len(tag) * " " + "size_t x0, size_t y0, size_t n0) const\n")
+    f.write("void Matrix::local_mul" + tag + "(Matrix_view ret, Const_matrix_view ma, Const_matrix_view mb,\n")
+    f.write("\t" + len(tag) * " " + "size_t x0, size_t y0, size_t n0)\n")
     f.write("{\n")
-    f.write(t0 + "size_t da = ma.rx, db = mb.rx, dr = ret.rx;\n")
+    f.write(t0 + "size_t da = ma.delta, db = mb.delta, dr = ret.delta;\n")
     f.write(t0 + "__m256 r0, r1, r2, r3, r4, r5, r6, r7;\n")
     f.write(t0 + "__m256 a0, a1, a2, a3, b0, bs, bak0, bak1;\n")
     f.write(t1)

@@ -26,9 +26,26 @@ void test_up_to(int mx)
 void run_tests()
 {
 	srand(time(NULL));
-	for (int i = 0; i < 30000; ++i)
-		test_up_to(32);
-	for (int i = 0; i < 3000; ++i)
+
+	for (int i = 0; i < 100000; ++i)
+		test_up_to(16);
+	for (int i = 0; i < 10000; ++i)
 		test_up_to(128);
+	std::cout << "Correctness tested\n";
+}
+
+
+double performance(int n)
+{
+	Matrix m0(n, n), m1(n, n);
+	for (int i = 0; i < n; ++i)
+		for (int j = 0; j < n; ++j){
+			m0(i, j) = 1.0;
+			m1(i, j) = 1.0;
+		}
+
+	Timer timer;
+	Matrix ret(m0 * m1);
+	return timer.snap();
 }
 

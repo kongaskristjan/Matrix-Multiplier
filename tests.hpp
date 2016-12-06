@@ -4,6 +4,7 @@
 #include <cassert>
 #include <cmath>
 #include <cstdlib>
+#include <timer.hpp>
 #include <matrix.hpp>
 #include <vector.hpp>
 
@@ -12,6 +13,7 @@ inline void approx_equal(float x, float y, float margin);
 inline int rand_less(int);
 void test_up_to(int);
 void run_tests();
+double performance(int);
 
 
 inline int rand_less(int mx)

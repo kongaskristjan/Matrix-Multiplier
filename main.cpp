@@ -71,16 +71,27 @@ int main2(int argc, char ** argv)
 	return 0;
 }
 
+void run_perf_tests(long start, long end, long delta, long coef)
+{
+	for (long sz = start; sz <= end; sz += delta){
+		long ntimes = 1 + (coef / (sz * sz * sz));
+		double sum = 0;
+		for (long j = 0; j < ntimes; ++j)
+			sum += performance(sz);
+
+		std::cout << sz << ", " << sum / ntimes << "\n";
+	}
+}
+
+
 int main()
 {
-	/*
-	   Matrix a(18, 2), b(5, 18);
-	   a(17, 0) = 1;
-	   b(4, 17) = 1;
-	//  b(17, 17) = 1;
-	cout << a << endl << endl << b << endl << endl << a * b << endl;
-	 */
-
 	run_tests();
+
+	run_perf_tests(100, 900, 100, 1e11);
+	run_perf_tests(1000, 9500, 500, 1e11);
+	run_perf_tests(10000, 20000, 2000, 1e11);
+
 	return 0;
 }
+
